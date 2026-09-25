@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Продуктовый дизайн и цифровые решения</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Уведомление о файлах Cookie -->
+    <div class="cookie-notice" id="cookieNotice">
+        <p>Мы используем файлы Cookie. Находясь на сайте, вы соглашаетесь с Политикой о персональных данных в соответствии с 152-ФЗ.</p>
+        <button id="acceptCookies">Принять</button>
+    </div>
+
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">ВАШЕ ИМЯ</div>
+            <nav class="nav">
+                <a href="#hero">Главная</a>
+                <a href="#projects">Проекты</a>
+                <a href="#awards">Достижения</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn-primary">Связаться</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <h1>Помогаю создавать цифровые продукты с помощью дизайна и программирования</h1>
+            <p class="hero-subtitle">Разработка интерфейсов и веб-решений для различных секторов. Проектирование масштабируемых систем и оптимизация пользовательского опыта.</p>
+        </div>
+    </section>
+
+    <!-- Секция проектов -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2>Избранные проекты</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <h3>Проект Alpha</h3>
+                    <p>Разработка интерфейса и фронтенд-части для финансового сервиса.</p>
+                    <div class="tags"><span>HTML/CSS</span><span>JavaScript</span><span>UI/UX</span></div>
+                </article>
+                <article class="project-card">
+                    <h3>Проект Beta</h3>
+                    <p>Создание интерактивной 3D-визуализации и анимации для веб-платформы.</p>
+                    <div class="tags"><span>3D</span><span>Анимация</span><span>Frontend</span></div>
+                </article>
+                <article class="project-card">
+                    <h3>Проект Gamma</h3>
+                    <p>Аналитика данных и построение дашборда для внутренней системы управления.</p>
+                    <div class="tags"><span>Анализ данных</span><span>JavaScript</span></div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция достижений -->
+    <section class="awards" id="awards">
+        <div class="container">
+            <h2>Ключевые показатели</h2>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <h3>15+</h3>
+                    <p>Завершенных проектов</p>
+                </div>
+                <div class="award-card">
+                    <h3>3</h3>
+                    <p>Года изучения точных наук и программирования</p>
+                </div>
+                <div class="award-card">
+                    <h3>100%</h3>
+                    <p>Соблюдение сроков и технических требований</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал и контакты -->
+    <footer class="footer" id="contacts">
+        <div class="container">
+            <h2>Обсудить проект</h2>
+            <p>Вы можете связаться со мной через Telegram, Instagram или электронную почту.</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="email" placeholder="Электронная почта" required>
+                <textarea placeholder="Описание задачи" rows="4"></textarea>
+                <button type="submit" class="btn-primary">Отправить сообщение</button>
+            </form>
+            <div class="footer-bottom">
+                <p>&copy; 2026. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
