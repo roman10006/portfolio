@@ -1,46 +1,45 @@
-// Управление видео
-document.addEventListener('DOMContentLoaded', function() {
-    const video = document.querySelector('.bg-video');
+// Ожидание полной загрузки структуры документа
+document.addEventListener('DOMContentLoaded', () => {
     
-    if (video) {
-        video.play().catch(e => {
-            console.log('Автовоспроизведение заблокировано:', e);
-            video.muted = true;
-            video.play();
+    // 1. Управление уведомлением о Cookie
+    const cookieNotice = document.getElementById('cookieNotice');
+    const acceptCookiesBtn = document.getElementById('acceptCookies');
+
+    // Проверка локального хранилища на наличие отметки о согласии
+    if (localStorage.getItem('cookiesAccepted')) {
+        cookieNotice.style.display = 'none';
+    } else {
+        cookieNotice.style.display = 'flex';
+    }
+
+    acceptCookiesBtn.addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'true');
+        cookieNotice.style.display = 'none';
+    });
+
+    // 2. Плавная прокрутка для якорных ссылок
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // 3. Обработка отправки контактной формы (имитация)
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Сообщение успешно сформировано. В реальном проекте здесь будет интеграция с почтовым сервисом или Telegram-ботом.');
+            contactForm.reset();
         });
     }
-});
-
-// Плавная прокрутка для навигации
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Активная ссылка при прокрутке
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-            link.classList.add('active');
-        }
-    });
 });

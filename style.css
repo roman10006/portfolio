@@ -1,3 +1,13 @@
+/* Базовые настройки и переменные */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --accent-color: #2563eb;
+    --secondary-bg: #f4f4f5;
+    --border-color: #e4e4e7;
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,131 +15,244 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0a0a0a;
-    color: #ffffff;
-    overflow-x: hidden;
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-/* Навигация */
-.navbar {
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Уведомление о Cookie */
+.cookie-notice {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
+    bottom: 24px;
+    left: 24px;
+    max-width: 400px;
+    background: var(--text-color);
+    color: var(--bg-color);
+    padding: 20px;
+    border-radius: 8px;
     z-index: 1000;
-    background: transparent;
+    display: none; /* Скрыто по умолчанию, управляется через JS */
+    flex-direction: column;
+    gap: 12px;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 18px;
+.cookie-notice button {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
     font-weight: 600;
 }
 
-.logo-icon {
-    font-size: 24px;
-    color: #ffffff;
+/* Шапка */
+.header {
+    border-bottom: 1px solid var(--border-color);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
 }
 
-.logo-text {
-    color: #ffffff;
-}
-
-.nav-links {
+.header-container {
     display: flex;
-    list-style: none;
-    gap: 40px;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.nav-links a {
-    color: #ffffff;
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.nav {
+    display: flex;
+    gap: 32px;
+}
+
+.nav a {
     text-decoration: none;
-    font-size: 16px;
+    color: var(--text-color);
+    font-weight: 500;
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-    color: #4a9eff;
+.nav a:hover {
+    color: var(--accent-color);
 }
 
-.contact-btn {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
+.btn-primary {
+    background: var(--text-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
 }
 
-.contact-btn:hover {
-    color: #4a9eff;
+.btn-primary:hover {
+    background: var(--accent-color);
 }
 
 /* Главный экран */
 .hero {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background: #000000;
-}
-
-/* Видео фон */
-.bg-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: 1;
-}
-
-/* Контент поверх видео */
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 700px;
+    padding: 120px 0;
     text-align: center;
-    padding: 20px;
 }
 
-.hero-content h1 {
+.hero h1 {
     font-size: 48px;
-    font-weight: 400;
-    line-height: 1.3;
-    color: #ffffff;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+    line-height: 1.2;
+    margin-bottom: 24px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.highlight {
-    color: #4a9eff;
-    display: block;
-    margin-bottom: 20px;
+.hero-subtitle {
+    font-size: 18px;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-/* Адаптивность */
+/* Общие стили секций */
+section {
+    padding: 80px 0;
+}
+
+section h2 {
+    font-size: 36px;
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+/* Сетка проектов */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+.project-card {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-color);
+}
+
+.project-card h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.tags span {
+    background: var(--secondary-bg);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Сетка достижений */
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    text-align: center;
+}
+
+.award-card {
+    background: var(--secondary-bg);
+    padding: 32px;
+    border-radius: 8px;
+}
+
+.award-card h3 {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+}
+
+/* Подвал */
+.footer {
+    padding: 80px 0 40px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.footer-bottom {
+    margin-top: 60px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 20px;
-    }
-    
-    .nav-links {
+    .header-container {
+        flex-direction: column;
         gap: 20px;
     }
     
-    .hero-content h1 {
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+    
+    .hero h1 {
         font-size: 32px;
     }
 }
