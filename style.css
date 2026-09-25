@@ -82,17 +82,7 @@ body {
     background: #000000;
 }
 
-/* Контейнер для видео */
-.video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-/* Общие стили для видео */
+/* Видео фон */
 .bg-video {
     position: absolute;
     top: 50%;
@@ -103,55 +93,7 @@ body {
     height: auto;
     transform: translate(-50%, -50%);
     object-fit: cover;
-    opacity: 0;
-}
-
-/* Первое видео - показывается сначала */
-.video-1 {
-    animation: video1Sequence 20s ease-in-out infinite;
-}
-
-/* Второе видео - показывается после первого */
-.video-2 {
-    animation: video2Sequence 20s ease-in-out infinite;
-}
-
-/* Анимация для первого видео */
-@keyframes video1Sequence {
-    0% {
-        opacity: 0;
-    }
-    5% {
-        opacity: 1;
-    }
-    45% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-/* Анимация для второго видео */
-@keyframes video2Sequence {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0;
-    }
-    55% {
-        opacity: 1;
-    }
-    95% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+    z-index: 1;
 }
 
 /* Контент поверх видео */
