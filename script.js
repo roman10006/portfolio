@@ -1,3 +1,17 @@
+// Управление видео
+document.addEventListener('DOMContentLoaded', function() {
+    const video1 = document.querySelector('.video-1');
+    const video2 = document.querySelector('.video-2');
+    
+    // Убедимся, что видео воспроизводятся
+    if (video1) {
+        video1.play().catch(e => console.log('Video 1 play failed:', e));
+    }
+    if (video2) {
+        video2.play().catch(e => console.log('Video 2 play failed:', e));
+    }
+});
+
 // Плавная прокрутка для навигации
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

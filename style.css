@@ -79,11 +79,11 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(to bottom, #000000 0%, #0a0a1a 100%);
+    background: #000000;
 }
 
-/* Контейнер для гор */
-.mountains-container {
+/* Контейнер для видео */
+.video-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -92,109 +92,69 @@ body {
     z-index: 1;
 }
 
-/* Общие стили для гор */
-.mountain {
+/* Общие стили для видео */
+.bg-video {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 60%;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
     opacity: 0;
 }
 
-/* Первая гора - CSS градиент */
-.mountain-1 {
-    background: linear-gradient(135deg, 
-        #1a1a2e 0%, 
-        #16213e 25%, 
-        #0f3460 50%, 
-        #1a1a2e 75%, 
-        #16213e 100%);
-    clip-path: polygon(
-        0% 100%, 
-        0% 60%, 
-        15% 40%, 
-        30% 50%, 
-        45% 30%, 
-        60% 45%, 
-        75% 25%, 
-        90% 40%, 
-        100% 35%, 
-        100% 100%
-    );
-    animation: mountain1Sequence 20s ease-in-out infinite;
+/* Первое видео - показывается сначала */
+.video-1 {
+    animation: video1Sequence 20s ease-in-out infinite;
 }
 
-/* Вторая гора - CSS градиент */
-.mountain-2 {
-    background: linear-gradient(135deg, 
-        #0f3460 0%, 
-        #1a1a2e 25%, 
-        #16213e 50%, 
-        #0f3460 75%, 
-        #1a1a2e 100%);
-    clip-path: polygon(
-        0% 100%, 
-        0% 50%, 
-        10% 35%, 
-        25% 45%, 
-        40% 25%, 
-        55% 40%, 
-        70% 20%, 
-        85% 35%, 
-        100% 30%, 
-        100% 100%
-    );
-    animation: mountain2Sequence 20s ease-in-out infinite;
+/* Второе видео - показывается после первого */
+.video-2 {
+    animation: video2Sequence 20s ease-in-out infinite;
 }
 
-/* Анимация для первой горы */
-@keyframes mountain1Sequence {
+/* Анимация для первого видео */
+@keyframes video1Sequence {
     0% {
         opacity: 0;
-        transform: translateX(-100%) rotate(0deg);
     }
-    10% {
+    5% {
         opacity: 1;
     }
     45% {
         opacity: 1;
-        transform: translateX(0) rotate(2deg);
     }
     50% {
         opacity: 0;
-        transform: translateX(100%) rotate(5deg);
     }
     100% {
         opacity: 0;
-        transform: translateX(100%) rotate(5deg);
     }
 }
 
-/* Анимация для второй горы */
-@keyframes mountain2Sequence {
+/* Анимация для второго видео */
+@keyframes video2Sequence {
     0% {
         opacity: 0;
-        transform: translateX(-100%) rotate(-5deg);
     }
     50% {
         opacity: 0;
-        transform: translateX(-100%) rotate(-5deg);
     }
     55% {
         opacity: 1;
     }
-    90% {
+    95% {
         opacity: 1;
-        transform: translateX(0) rotate(-2deg);
     }
     100% {
         opacity: 0;
-        transform: translateX(100%) rotate(0deg);
     }
 }
 
-/* Контент поверх гор */
+/* Контент поверх видео */
 .hero-content {
     position: relative;
     z-index: 2;
