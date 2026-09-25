@@ -3,51 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портфолио</title>
-    <!-- Подключение файла стилей -->
+    <title>Ваше Портфолио</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Шапка сайта с навигацией -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">Обо мне</a></li>
-                <li><a href="#portfolio">Портфолио</a></li>
-                <li><a href="#contacts">Контакты</a></li>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Название</div>
+            <ul class="nav-menu">
+                <li><a href="#main">Main</a></li>
+                <li><a href="#works">Works</a></li>
+                <li><a href="#services">Services</a></li>
             </ul>
-        </nav>
-    </header>
+            <a href="#contact" class="contact-btn">Contact Us</a>
+        </div>
+    </nav>
 
-    <!-- Основное содержимое страницы -->
-    <main>
-        <section id="hero">
-            <h1>Имя Фамилия</h1>
-            <p>Краткое описание профессиональной деятельности или специализации.</p>
-        </section>
+    <!-- Hero секция -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="highlight">Elevate your project</span> with our professional 
+                software development, design, and game creation services.
+            </h1>
+        </div>
+    </section>
 
-        <section id="about">
-            <h2>Обо мне</h2>
-            <p>Здесь будет размещена подробная информация о ваших навыках, образовании и опыте.</p>
-        </section>
-
-        <section id="portfolio">
-            <h2>Портфолио</h2>
-            <p>Здесь будут представлены примеры выполненных работ или проектов.</p>
-        </section>
-
-        <section id="contacts">
-            <h2>Контакты</h2>
-            <p>Связаться со мной можно через Telegram, Instagram или электронную почту.</p>
-        </section>
-    </main>
-
-    <!-- Подвал сайта -->
-    <footer>
-        <p>&copy; 2026 Имя Фамилия. Все права защищены.</p>
-    </footer>
-
-    <!-- Подключение файла сценариев JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
