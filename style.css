@@ -82,87 +82,93 @@ body {
     background: linear-gradient(to bottom, #000000 0%, #0a0a1a 100%);
 }
 
-/* Контейнер планеты */
-.planet-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 800px;
-    height: 800px;
-    z-index: 1;
-}
-
-/* Планета с CSS градиентом */
-.planet {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: 
-        radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0a 50%, #000000 100%),
-        linear-gradient(45deg, #4a9eff 0%, transparent 50%);
-    background-size: 200% 200%, 100% 100%;
-    box-shadow: 
-        inset -50px -50px 100px rgba(0, 0, 0, 0.9),
-        inset 20px 20px 50px rgba(74, 158, 255, 0.1),
-        0 0 100px rgba(74, 158, 255, 0.2);
-    animation: rotatePlanet 60s linear infinite;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Добавляем текстуру поверхности */
-.planet::before {
-    content: '';
+/* Контейнер для гор */
+.mountains-container {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 50%;
-    background: 
-        repeating-linear-gradient(
-            90deg,
-            transparent 0px,
-            transparent 2px,
-            rgba(74, 158, 255, 0.03) 2px,
-            rgba(74, 158, 255, 0.03) 4px
-        );
-    animation: rotateTexture 30s linear infinite;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
-/* Добавляем атмосферу */
-.planet::after {
-    content: '';
+/* Общие стили для гор */
+.mountain {
     position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border-radius: 50%;
-    background: radial-gradient(circle, transparent 60%, rgba(74, 158, 255, 0.1) 70%, transparent 80%);
-    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation-duration: 20s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
 }
 
-@keyframes rotatePlanet {
-    from {
-        transform: rotate(0deg);
+.mountain img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6) contrast(1.2);
+}
+
+/* Первая гора - вращается и появляется первой */
+.mountain-1 {
+    animation-name: mountain1Sequence;
+}
+
+/* Вторая гора - появляется после первой */
+.mountain-2 {
+    animation-name: mountain2Sequence;
+}
+
+/* Анимация для первой горы */
+@keyframes mountain1Sequence {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg) scale(1);
     }
-    to {
-        transform: rotate(360deg);
+    10% {
+        opacity: 1;
+    }
+    45% {
+        opacity: 1;
+        transform: rotate(5deg) scale(1.05);
+    }
+    50% {
+        opacity: 0;
+        transform: rotate(10deg) scale(1.1);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(10deg) scale(1.1);
     }
 }
 
-@keyframes rotateTexture {
-    from {
-        background-position: 0 0;
+/* Анимация для второй горы */
+@keyframes mountain2Sequence {
+    0% {
+        opacity: 0;
+        transform: rotate(-10deg) scale(1.1);
     }
-    to {
-        background-position: 400px 0;
+    50% {
+        opacity: 0;
+        transform: rotate(-10deg) scale(1.1);
+    }
+    55% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+        transform: rotate(-5deg) scale(1.05);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(0deg) scale(1);
     }
 }
 
-/* Контент поверх планеты */
+/* Контент поверх гор */
 .hero-content {
     position: relative;
     z-index: 2;
@@ -197,10 +203,5 @@ body {
     
     .hero-content h1 {
         font-size: 32px;
-    }
-    
-    .planet-container {
-        width: 400px;
-        height: 400px;
     }
 }
