@@ -1,19 +1,33 @@
-// Параллакс эффект при скролле
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+// Плавная прокрутка для навигации
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
 });
 
-// Плавное появление текста
-window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    heroTitle.style.opacity = '0';
-    heroTitle.style.transform = 'translateY(30px)';
+// Активная ссылка при прокрутке
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('section');
     
-    setTimeout(() => {
-        heroTitle.style.transition = 'all 1s ease';
-        heroTitle.style.opacity = '1';
-        heroTitle.style.transform = 'translateY(0)';
-    }, 300);
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+            link.classList.add('active');
+        }
+    });
 });
