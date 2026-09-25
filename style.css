@@ -95,53 +95,79 @@ body {
 /* Общие стили для гор */
 .mountain {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 60%;
     opacity: 0;
-    animation-duration: 20s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
 }
 
-.mountain img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.6) contrast(1.2);
-}
-
-/* Первая гора - вращается и появляется первой */
+/* Первая гора - CSS градиент */
 .mountain-1 {
-    animation-name: mountain1Sequence;
+    background: linear-gradient(135deg, 
+        #1a1a2e 0%, 
+        #16213e 25%, 
+        #0f3460 50%, 
+        #1a1a2e 75%, 
+        #16213e 100%);
+    clip-path: polygon(
+        0% 100%, 
+        0% 60%, 
+        15% 40%, 
+        30% 50%, 
+        45% 30%, 
+        60% 45%, 
+        75% 25%, 
+        90% 40%, 
+        100% 35%, 
+        100% 100%
+    );
+    animation: mountain1Sequence 20s ease-in-out infinite;
 }
 
-/* Вторая гора - появляется после первой */
+/* Вторая гора - CSS градиент */
 .mountain-2 {
-    animation-name: mountain2Sequence;
+    background: linear-gradient(135deg, 
+        #0f3460 0%, 
+        #1a1a2e 25%, 
+        #16213e 50%, 
+        #0f3460 75%, 
+        #1a1a2e 100%);
+    clip-path: polygon(
+        0% 100%, 
+        0% 50%, 
+        10% 35%, 
+        25% 45%, 
+        40% 25%, 
+        55% 40%, 
+        70% 20%, 
+        85% 35%, 
+        100% 30%, 
+        100% 100%
+    );
+    animation: mountain2Sequence 20s ease-in-out infinite;
 }
 
 /* Анимация для первой горы */
 @keyframes mountain1Sequence {
     0% {
         opacity: 0;
-        transform: rotate(0deg) scale(1);
+        transform: translateX(-100%) rotate(0deg);
     }
     10% {
         opacity: 1;
     }
     45% {
         opacity: 1;
-        transform: rotate(5deg) scale(1.05);
+        transform: translateX(0) rotate(2deg);
     }
     50% {
         opacity: 0;
-        transform: rotate(10deg) scale(1.1);
+        transform: translateX(100%) rotate(5deg);
     }
     100% {
         opacity: 0;
-        transform: rotate(10deg) scale(1.1);
+        transform: translateX(100%) rotate(5deg);
     }
 }
 
@@ -149,22 +175,22 @@ body {
 @keyframes mountain2Sequence {
     0% {
         opacity: 0;
-        transform: rotate(-10deg) scale(1.1);
+        transform: translateX(-100%) rotate(-5deg);
     }
     50% {
         opacity: 0;
-        transform: rotate(-10deg) scale(1.1);
+        transform: translateX(-100%) rotate(-5deg);
     }
     55% {
         opacity: 1;
     }
     90% {
         opacity: 1;
-        transform: rotate(-5deg) scale(1.05);
+        transform: translateX(0) rotate(-2deg);
     }
     100% {
         opacity: 0;
-        transform: rotate(0deg) scale(1);
+        transform: translateX(100%) rotate(0deg);
     }
 }
 
