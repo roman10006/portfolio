@@ -1644,19 +1644,21 @@ body.dark-theme .hero__description--highlighted strong {
 }
 
 .hero__logo-spin {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   animation: logoSpin 8s linear infinite;
+  background: transparent;
+  box-shadow: none;
 }
 
 .hero__logo-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 4px 12px rgba(59, 108, 245, 0.2));
+  filter: none;
 }
 
 @keyframes logoSpin {
