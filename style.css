@@ -1838,3 +1838,48 @@ body.dark-theme .award-card-new__project {
     font-size: 1.375rem;
   }
 }
+/* Кнопка смены темы — всегда видна */
+.theme-toggle--mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #111111;
+  flex-shrink: 0;
+}
+
+.theme-toggle--mobile:hover {
+  background-color: #f5f5f7;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Тёмная тема */
+body.dark-theme .theme-toggle--mobile {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+body.dark-theme .theme-toggle--mobile:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* На десктопе скрываем дублирующую кнопку (если она есть в nav__actions) */
+@media (min-width: 1201px) {
+  .theme-toggle--mobile {
+    display: none;
+  }
+}
+
+/* На мобильных показываем кнопку рядом с бургером */
+@media (max-width: 1200px) {
+  .theme-toggle--mobile {
+    display: flex;
+    margin-right: 12px;
+  }
+}
