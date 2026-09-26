@@ -1,6 +1,5 @@
 /* ==========================================================================
-   SCRIPT.JS — Чистый JavaScript для портфолио
-   Функции: меню, плавный скролл, анимации, подменю, карточки
+   SCRIPT.JS — Чистый JavaScript для портфолио в стиле Flatonica
    ========================================================================== */
 
 (function () {
@@ -10,23 +9,6 @@
   // 1. УТИЛИТЫ
   // ==========================================================================
 
-  /**
-   * Throttle — ограничивает частоту вызова функции
-   */
-  function throttle(func, limit) {
-    let inThrottle;
-    return function (...args) {
-      if (!inThrottle) {
-        func.apply(this, args);
-        inThrottle = true;
-        setTimeout(() => (inThrottle = false), limit);
-      }
-    };
-  }
-
-  /**
-   * Debounce — вызывает функцию после паузы
-   */
   function debounce(func, delay) {
     let timer;
     return function (...args) {
@@ -35,11 +17,8 @@
     };
   }
 
-  /**
-   * Проверка мобильного устройства
-   */
   function isMobile() {
-    return window.innerWidth <= 960;
+    return window.innerWidth <= 1200;
   }
 
   // ==========================================================================
@@ -61,12 +40,10 @@
       this.burger.addEventListener('click', () => this.toggle());
       document.addEventListener('click', (e) => this.closeOutside(e));
 
-      // Закрытие при клике на ссылку в меню
       this.menu.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => this.close());
       });
 
-      // Закрытие при изменении размера окна (если перешли на десктоп)
       window.addEventListener('resize', debounce(() => {
         if (!isMobile() && this.isOpen) this.close();
       }, 200));
@@ -108,20 +85,12 @@
   // ==========================================================================
 
   const SmoothScroll = {
-    headerHeight: 0,
+    headerHeight: 80,
 
     init() {
       document.querySelectorAll('a[href^="#"]').forEach((link) => {
         link.addEventListener('click', (e) => this.handleClick(e, link));
       });
-
-      this.updateHeaderHeight();
-      window.addEventListener('resize', debounce(() => this.updateHeaderHeight(), 200));
-    },
-
-    updateHeaderHeight() {
-      const header = document.querySelector('.header');
-      this.headerHeight = header ? header.offsetHeight : 0;
     },
 
     handleClick(e, link) {
@@ -143,7 +112,6 @@
         behavior: 'smooth',
       });
 
-      // Закрываем мобильное меню после клика
       if (BurgerMenu.isOpen) BurgerMenu.close();
     },
   };
@@ -162,7 +130,6 @@
 
       if (this.sections.length === 0) return;
 
-      // Используем IntersectionObserver для эффективности
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -194,76 +161,7 @@
   };
 
   // ==========================================================================
-  // 5. ВЫПАДАЮЩЕЕ ПОДМЕНЮ
-  // ==========================================================================
-
-  const Submenu = {
-    init() {
-      const items = document.querySelectorAll('.has-submenu');
-
-      items.forEach((item) => {
-        const link = item.querySelector(':scope > a');
-        const submenu = item.querySelector('.submenu');
-        const arrow = item.querySelector('.submenu-arrow');
-
-        if (!link || !submenu) return;
-
-        // Создаём стрелочку, если её нет
-        if (!arrow) {
-          const arrowEl = document.createElement('span');
-          arrowEl.className = 'submenu-arrow';
-          arrowEl.innerHTML = '<svg width="10" height="6" viewBox="0 0 10 6"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>';
-          link.appendChild(arrowEl);
-        }
-
-        // Десктоп: hover
-        if (!isMobile()) {
-          item.addEventListener('mouseenter', () => this.open(item));
-          item.addEventListener('mouseleave', () => this.close(item));
-        }
-
-        // Мобильный: клик
-        link.addEventListener('click', (e) => {
-          if (isMobile()) {
-            e.preventDefault();
-            this.toggleMobile(item);
-          }
-        });
-      });
-
-      // Пересоздаём обработчики при ресайзе
-      window.addEventListener('resize', debounce(() => {
-        // Сбрасываем все открытые подменю
-        document.querySelectorAll('.has-submenu--open').forEach((item) => {
-          item.classList.remove('has-submenu--open');
-        });
-      }, 300));
-    },
-
-    open(item) {
-      if (isMobile()) return;
-      item.classList.add('has-submenu--open');
-    },
-
-    close(item) {
-      item.classList.remove('has-submenu--open');
-    },
-
-    toggleMobile(item) {
-      const isOpen = item.classList.contains('has-submenu--open');
-
-      // Закрываем все остальные подменю на том же уровне
-      const siblings = item.parentElement.querySelectorAll('.has-submenu');
-      siblings.forEach((sibling) => {
-        if (sibling !== item) sibling.classList.remove('has-submenu--open');
-      });
-
-      item.classList.toggle('has-submenu--open', !isOpen);
-    },
-  };
-
-  // ==========================================================================
-  // 6. АНИМАЦИИ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
+  // 5. АНИМАЦИИ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
   // ==========================================================================
 
   const ScrollAnimations = {
@@ -279,7 +177,7 @@
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add('animate--visible');
-              observer.unobserve(entry.target); // Анимируем только один раз
+              observer.unobserve(entry.target);
             }
           });
         },
@@ -294,42 +192,7 @@
   };
 
   // ==========================================================================
-  // 7. КЛИКАБЕЛЬНЫЕ КАРТОЧКИ
-  // ==========================================================================
-
-  const ClickableCards = {
-    init() {
-      const cards = document.querySelectorAll('.card');
-
-      cards.forEach((card) => {
-        const link = card.querySelector('a.card__link');
-        if (!link) return;
-
-        // Делаем всю карточку кликабельной
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', (e) => {
-          // Не перехватываем клики по кнопкам и другим ссылкам внутри
-          if (e.target.closest('button') || e.target.closest('a:not(.card__link)')) {
-            return;
-          }
-          e.preventDefault();
-          link.click();
-        });
-
-        // Открываем в новой вкладке при среднем клике
-        card.addEventListener('auxclick', (e) => {
-          if (e.button === 1) {
-            e.preventDefault();
-            const url = link.getAttribute('href');
-            if (url) window.open(url, '_blank');
-          }
-        });
-      });
-    },
-  };
-
-  // ==========================================================================
-  // 8. ФИКСИРОВАННАЯ ШАПКА — ИЗМЕНЕНИЕ ПРИ СКРОЛЛЕ
+  // 6. ФИКСИРОВАННАЯ ШАПКА — ТЕНЬ ПРИ СКРОЛЛЕ
   // ==========================================================================
 
   const StickyHeader = {
@@ -339,69 +202,33 @@
       this.header = document.querySelector('.header');
       if (!this.header) return;
 
-      const handleScroll = throttle(() => {
-        if (window.scrollY > 50) {
+      const handleScroll = () => {
+        if (window.scrollY > 20) {
           this.header.classList.add('header--scrolled');
         } else {
           this.header.classList.remove('header--scrolled');
         }
-      }, 100);
+      };
 
       window.addEventListener('scroll', handleScroll, { passive: true });
-      handleScroll(); // Проверяем сразу при загрузке
+      handleScroll();
     },
   };
 
   // ==========================================================================
-  // 9. ЛЕНИВАЯ ЗАГРУЗКА ИЗОБРАЖЕНИЙ (нативная + fallback)
-  // ==========================================================================
-
-  const LazyImages = {
-    init() {
-      const images = document.querySelectorAll('img[data-src]');
-
-      if ('loading' in HTMLImageElement.prototype) {
-        // Нативная поддержка — просто меняем src
-        images.forEach((img) => {
-          img.src = img.dataset.src;
-          if (img.dataset.srcset) img.srcset = img.dataset.srcset;
-        });
-      } else {
-        // Fallback через IntersectionObserver
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const img = entry.target;
-              img.src = img.dataset.src;
-              if (img.dataset.srcset) img.srcset = img.dataset.srcset;
-              observer.unobserve(img);
-            }
-          });
-        });
-
-        images.forEach((img) => observer.observe(img));
-      }
-    },
-  };
-
-  // ==========================================================================
-  // 10. ЗАПУСК ВСЕХ МОДУЛЕЙ
+  // 7. ЗАПУСК ВСЕХ МОДУЛЕЙ
   // ==========================================================================
 
   function init() {
     BurgerMenu.init();
     SmoothScroll.init();
     ActiveMenu.init();
-    Submenu.init();
     ScrollAnimations.init();
-    ClickableCards.init();
     StickyHeader.init();
-    LazyImages.init();
 
     console.log('✅ Portfolio JS initialized');
   }
 
-  // Запуск после полной загрузки DOM
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
