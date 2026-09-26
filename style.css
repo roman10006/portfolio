@@ -989,3 +989,135 @@ p {
     font-size: 1.375rem;
   }
 }
+/* Логотип с позиционированием */
+.logo-container {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Тултип */
+.logo-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  margin-top: 0;
+}
+
+.logo-container:hover .logo-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Бегущая строка */
+.tooltip-marquee {
+  display: flex;
+  width: fit-content;
+  animation: marquee 20s linear infinite;
+  white-space: nowrap;
+}
+
+.tooltip-marquee span {
+  padding-right: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Полноэкранный режим */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.t-records {
+  width: 100vw !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.t-container {
+  max-width: 100% !important;
+  padding: 0 20px;
+}
+
+/* Адаптация всех секций на полную ширину */
+.r {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Убираем ограничения ширины */
+.t-width_12, .t-col_12 {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Полноэкранные изображения и фоны */
+.t-cover__carrier, .t-bgimg {
+  width: 100vw !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+/* Мобильная адаптация */
+@media screen and (max-width: 960px) {
+  .logo-tooltip {
+    display: none; /* Отключаем на мобильных */
+  }
+  
+  .tooltip-marquee {
+    animation-duration: 15s;
+  }
+}
+
+/* Улучшения для тултипа */
+.logo-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    rgba(102, 126, 234, 0.8) 0%, 
+    rgba(118, 75, 162, 0.8) 50%, 
+    rgba(102, 126, 234, 0.8) 100%);
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease infinite;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.logo-container:hover .logo-tooltip::before {
+  opacity: 1;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

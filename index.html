@@ -1,21 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Продуктовый дизайн и развитие цифровых сервисов</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- ШАПКА (всегда сверху) -->
-  <header class="header">
-    <nav class="nav container">
-      <a href="#" class="logo">
-        <div class="logo-icon">F</div>
-      </a>
-
-      <ul class="nav__list">
+ls="nav__list">
         <li><a href="#projects" class="nav__link">Проекты</a></li>
         <li><a href="#services" class="nav__link">Услуги</a></li>
         <li><a href="#contacts" class="nav__link">Контакты</a></li>
@@ -38,7 +23,7 @@
 
       <div class="nav__actions">
         <a href="#contacts" class="nav__cta">Запросить цену</a>
-        <a href="https://t.me/username" class="nav__telegram" target="_blank">
+        <a href="https://t.me/username" class="nav__telegram" target="_blank" rel="noopener">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.053 5.56-5.023c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
           </svg>
@@ -52,8 +37,8 @@
         </a>
       </div>
 
-      <!-- Бургер -->
-      <button class="burger" aria-label="Menu" aria-expanded="false">
+      <!-- Кнопка бургер-меню для мобильных -->
+      <button class="burger" aria-label="Открыть меню" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -71,7 +56,7 @@
           </svg>
           Второй год подряд определяем тренды финансового рынка
         </div>
-        <a href="#details" class="hero__badge-btn">Подробнее</a>
+        <a href="#details" class="hero__badge-btn animate animate-fade animate--delay-1">Подробнее</a>
 
         <div class="hero__grid">
           <div class="hero__left">
@@ -88,11 +73,11 @@
 
           <div class="hero__right animate animate-up animate--delay-1">
             <div class="hero__image-wrapper">
+              <!-- Замени на свой файл из папки images -->
               <img class="hero__image" src="images/tild3830-6433-4639-a538-353364303631.jpg" alt="Product Design" loading="lazy">
             </div>
             <p class="hero__description">
-              Продуктовый дизайн и инженерия цифровых сервисов для ключевых секторов экономики: от финтеха и крипто до е-ком и телекома.
-              С 2019 года мы проектируем масштабируемые интерфейсы, развиваем продукты и системно разгружаем бэклоги корпораций
+              Продуктовый дизайн и инженерия цифровых сервисов для ключевых секторов экономики: от финтеха и крипто до e-com и телекома. С 2019 года мы проектируем масштабируемые интерфейсы и разгружаем бэклоги корпораций.
             </p>
           </div>
         </div>
@@ -100,13 +85,13 @@
     </section>
 
     <!-- О КОМПАНИИ (тёмная секция) -->
-    <section id="about" class="section section--dark">
+    <section id="services" class="section section--dark">
       <div class="container">
         <h2 class="about__title animate animate-up">
           Мы работаем с корпорациями и компаниями. <span class="about__title-light">Во всём мире</span>
         </h2>
         <p class="about__subtitle animate animate-up animate--delay-1">
-          Успешно консультируем и разрабатываем цифровые решения для <strong>малого и крупного бизнеса</strong>. Среди клиентов: Аукционный Дом РФ, JAMI LUP, Kraster Wallet, Сколково, Phantom Clash, ДомДА, BID1, RAD Holiday Homes
+          Успешно консультируем и разрабатываем цифровые решения для <strong>малого и крупного бизнеса</strong>. 
         </p>
 
         <div class="clients__grid animate animate-up animate--delay-2">
@@ -120,53 +105,6 @@
           <div class="client">JAMI LUP</div>
           <div class="client">ВНИИИМТ</div>
           <div class="client">RAD Holiday Homes</div>
-          <div class="client">CPA MAFIA</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- НАГРАДЫ -->
-    <section id="awards" class="section section--awards">
-      <div class="container">
-        <h2 class="awards__title animate animate-up">
-          Медальный зачёт <span class="awards__dot"></span> 60 наград
-        </h2>
-
-        <div class="awards__grid">
-          <article class="award-card animate animate-up">
-            <div class="award-card__header">
-              <svg class="award-card__icon award-card__icon--gold" width="60" height="60" viewBox="0 0 60 60" fill="none">
-                <rect x="5" y="10" width="30" height="25" stroke="currentColor" stroke-width="2"/>
-                <rect x="15" y="20" width="20" height="15" stroke="currentColor" stroke-width="2"/>
-                <rect x="25" y="30" width="10" height="5" stroke="currentColor" stroke-width="2"/>
-              </svg>
-              <span class="award-card__label">Национальная премия</span>
-            </div>
-            <div class="award-card__body">
-              <div class="award-card__year">Золотой Сайт 2026</div>
-              <h3 class="award-card__name">
-                Золото «Банковский и финансовый сервис»
-                <span class="award-card__new">Новый</span>
-              </h3>
-              <div class="award-card__project">Kraster Wallet</div>
-            </div>
-          </article>
-
-          <article class="award-card animate animate-up animate--delay-1">
-            <div class="award-card__header">
-              <svg class="award-card__icon" width="60" height="60" viewBox="0 0 60 60" fill="none">
-                <rect x="5" y="10" width="30" height="25" stroke="currentColor" stroke-width="2"/>
-                <rect x="15" y="20" width="20" height="15" stroke="currentColor" stroke-width="2"/>
-                <rect x="25" y="30" width="10" height="5" stroke="currentColor" stroke-width="2"/>
-              </svg>
-              <span class="award-card__label">Национальная премия</span>
-            </div>
-            <div class="award-card__body">
-              <div class="award-card__year">Золотой Сайт 2026</div>
-              <h3 class="award-card__name">Серебро «Дизайн приложения»</h3>
-              <div class="award-card__project">Kraster Wallet</div>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -184,7 +122,8 @@
           <span class="tag">Анимация</span>
         </div>
 
-        <article class="project animate animate-up animate--delay-2">
+        <article class="project card animate animate-up animate--delay-2">
+          <a href="#" class="card__link" aria-hidden="true"></a>
           <div class="project__image">
             <img src="images/project-gatepay.jpg" alt="Gatepay" loading="lazy">
           </div>
@@ -198,12 +137,58 @@
             <h3 class="project__name">Gatepay</h3>
             <div class="project__year">2026</div>
             <p class="project__description">
-              Дизайн интерфейсов и 3D графика для финтех-инфраструктуры, которая помогает принимать платежи через СБП и банковские карты. Платформа ориентирована на SaaS-проекты, онлайн-платформы и сервисы подписок.
+              Дизайн интерфейсов и 3D графика для финтех-инфраструктуры, которая помогает принимать платежи через СБП и банковские карты.
             </p>
             <div class="project__cta">Скоро на сайте</div>
           </div>
           <h4 class="project__subtitle">Задизайнили интерфейсы ЛК и приложения и отрендерили графику</h4>
         </article>
+      </div>
+    </section>
+
+    <!-- НАГРАДЫ -->
+    <section id="awards" class="section section--awards">
+      <div class="container">
+        <h2 class="awards__title animate animate-up">
+          Медальный зачёт <span class="awards__dot"></span> 60 наград
+        </h2>
+
+        <div class="awards__grid">
+          <article class="award-card card animate animate-up">
+            <a href="awards/dpfa2025.html" class="card__link" aria-hidden="true"></a>
+            <div class="award-card__header">
+              <svg class="award-card__icon award-card__icon--gold" width="60" height="60" viewBox="0 0 60 60" fill="none">
+                <rect x="5" y="10" width="30" height="25" stroke="currentColor" stroke-width="2"/>
+                <rect x="15" y="20" width="20" height="15" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              <span class="award-card__label">Национальная премия</span>
+            </div>
+            <div class="award-card__body">
+              <div class="award-card__year">Золотой Сайт 2026</div>
+              <h3 class="award-card__name">
+                Золото «Банковский и финансовый сервис»
+                <span class="award-card__new">Новый</span>
+              </h3>
+              <div class="award-card__project">Kraster Wallet</div>
+            </div>
+          </article>
+
+          <article class="award-card card animate animate-up animate--delay-1">
+            <a href="awards/wda25.html" class="card__link" aria-hidden="true"></a>
+            <div class="award-card__header">
+              <svg class="award-card__icon" width="60" height="60" viewBox="0 0 60 60" fill="none">
+                <rect x="5" y="10" width="30" height="25" stroke="currentColor" stroke-width="2"/>
+                <rect x="15" y="20" width="20" height="15" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              <span class="award-card__label">Международная премия</span>
+            </div>
+            <div class="award-card__body">
+              <div class="award-card__year">Workspace Digital Awards 2025</div>
+              <h3 class="award-card__name">Gold «Mobile App Design»</h3>
+              <div class="award-card__project">Casper Cards</div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -214,10 +199,10 @@
         <h2 class="section__title animate animate-up">Свяжитесь со мной</h2>
 
         <div class="contacts__list mt-5">
-          <a href="https://t.me/username" class="contact-link animate animate-up" target="_blank">
+          <a href="https://t.me/username" class="contact-link animate animate-up" target="_blank" rel="noopener">
             Telegram
           </a>
-          <a href="https://instagram.com/username" class="contact-link animate animate-up animate--delay-1" target="_blank">
+          <a href="https://instagram.com/username" class="contact-link animate animate-up animate--delay-1" target="_blank" rel="noopener">
             Instagram
           </a>
           <a href="mailto:hi@example.com" class="contact-link animate animate-up animate--delay-2">
@@ -240,6 +225,7 @@
     </div>
   </footer>
 
+  <!-- Подключаем скрипт с отложенной загрузкой -->
   <script src="script.js" defer></script>
 </body>
 </html>
