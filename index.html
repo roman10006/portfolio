@@ -74,6 +74,14 @@
 <!-- HERO СЕКЦИЯ -->
 <section id="hero" class="section section--hero">
   <div class="container">
+    <!-- Вращающийся логотип + надпись Revuelt Core -->
+    <div class="hero__logo-wrapper animate animate-fade">
+      <div class="hero__logo-spin">
+        <img src="images/logo.svg" alt="Logo" class="hero__logo-img">
+      </div>
+      <div class="hero__brand-name">Revuelt Core</div>
+    </div>
+
     <div class="hero__grid">
       <div class="hero__left">
         <h1 class="hero__title animate animate-up">
@@ -86,6 +94,21 @@
           <a href="#" class="hero__social">Telegram</a>
         </div>
       </div>
+
+      <div class="hero__right animate animate-up animate--delay-1">
+        <div class="hero__video-wrapper">
+          <video class="hero__video" autoplay muted loop playsinline>
+            <source src="videos/hero-video.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <p class="hero__description hero__description--highlighted">
+          <strong>Recarve</strong> — это новая платформа для творческих профессионалов, где можно демонстрировать портфолио, участвовать в креативных батлах, выполнять челленджи, зарабатывать опыт, повышать уровень, получать награды и подниматься в таблице лидеров через соревнование с сообществом.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       <div class="hero__right animate animate-up animate--delay-1">
         <div class="hero__video-wrapper">
@@ -135,42 +158,60 @@
           Медальный зачёт <span class="awards__dot"></span> 60 наград
         </h2>
 
-        <div class="awards__grid">
-          <article class="award-card animate animate-up">
-            <div class="award-card__header">
-              <svg class="award-card__icon award-card__icon--gold" width="60" height="60" viewBox="0 0 60 60" fill="none">
-                <rect x="5" y="10" width="30" height="25" stroke="currentColor" stroke-width="2"/>
-                <rect x="15" y="20" width="20" height="15" stroke="currentColor" stroke-width="2"/>
-                <rect x="25" y="30" width="10" height="5" stroke="currentColor" stroke-width="2"/>
-              </svg>
-              <span class="award-card__label">Национальная премия</span>
-            </div>
-            <div class="award-card__body">
-              <div class="award-card__year">Золотой Сайт 2026</div>
-              <h3 class="award-card__name">
-                Золото «Банковский и финансовый сервис»
-                <span class="award-card__new">Новый</span>
-              </h3>
-              <div class="award-card__project">Kraster Wallet</div>
-            </div>
-          </article>
+<div class="awards__grid">
+  <!-- Карточка 1 -->
+  <article class="award-card-new animate animate-up">
+    <div class="award-card-new__top">
+      <div class="award-card-new__icon">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <path d="M30 5L50 15V45L30 55L10 45V15L30 5Z" fill="#111"/>
+          <path d="M30 12L44 20V40L30 48L16 40V20L30 12Z" fill="#fff"/>
+        </svg>
+      </div>
+      <span class="award-card-new__badge">NEW</span>
+    </div>
+    <div class="award-card-new__body">
+      <div class="award-card-new__event">DPFA'25</div>
+      <h3 class="award-card-new__title">Project of the Year</h3>
+      <div class="award-card-new__project">Kraster Wallet</div>
+    </div>
+  </article>
 
-          <article class="award-card animate animate-up animate--delay-1">
-            <div class="award-card__header">
-              <svg class="award-card__icon" width="60" height="60" viewBox="0 0 60 60" fill="none">
-                <rect x="5" y="10" width="30" height="25" stroke="currentColor" stroke-width="2"/>
-                <rect x="15" y="20" width="20" height="15" stroke="currentColor" stroke-width="2"/>
-                <rect x="25" y="30" width="10" height="5" stroke="currentColor" stroke-width="2"/>
-              </svg>
-              <span class="award-card__label">Национальная премия</span>
-            </div>
-            <div class="award-card__body">
-              <div class="award-card__year">Золотой Сайт 2026</div>
-              <h3 class="award-card__name">Серебро «Дизайн приложения»</h3>
-              <div class="award-card__project">Kraster Wallet</div>
-            </div>
-          </article>
-        </div>
+  <!-- Карточка 2 -->
+  <article class="award-card-new animate animate-up animate--delay-1">
+    <div class="award-card-new__top">
+      <div class="award-card-new__icon">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <path d="M30 5L50 15V45L30 55L10 45V15L30 5Z" fill="#111"/>
+          <path d="M30 12L44 20V40L30 48L16 40V20L30 12Z" fill="#fff"/>
+        </svg>
+      </div>
+    </div>
+    <div class="award-card-new__body">
+      <div class="award-card-new__event">WDA'25</div>
+      <h3 class="award-card-new__title">Gold — Mobile App Design</h3>
+      <div class="award-card-new__project">Casper Cards</div>
+    </div>
+  </article>
+
+  <!-- Карточка 3 -->
+  <article class="award-card-new animate animate-up animate--delay-2">
+    <div class="award-card-new__top">
+      <div class="award-card-new__icon">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <path d="M30 5L50 15V45L30 55L10 45V15L30 5Z" fill="#111"/>
+          <path d="M30 12L44 20V40L30 48L16 40V20L30 12Z" fill="#fff"/>
+        </svg>
+      </div>
+      <span class="award-card-new__badge">NEW</span>
+    </div>
+    <div class="award-card-new__body">
+      <div class="award-card-new__event">Golden Site 2026</div>
+      <h3 class="award-card-new__title">Best Banking & Finance Service</h3>
+      <div class="award-card-new__project">Kraster Wallet</div>
+    </div>
+  </article>
+</div>
       </div>
     </section>
 
