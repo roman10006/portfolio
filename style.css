@@ -1850,3 +1850,34 @@ body.dark-theme .theme-toggle--mobile:hover {
     margin-right: 12px;
   }
 }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111111;
+  letter-spacing: -0.02em;
+}
+
+body.dark-theme .logo-text {
+  color: #ffffff;
+}
+/* Скрываем меню на всех экранах — всегда показываем бургер */
+.nav__list--hidden {
+  display: none !important;
+}
+
+/* Всегда показываем бургер */
+.burger {
+  display: flex !important;
+}
+
+/* Убираем ограничение ширины для nav__actions */
+.nav__actions {
+  display: flex;
+  gap: 12px;
+}
