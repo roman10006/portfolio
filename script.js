@@ -1,7 +1,6 @@
-/**
- * SCRIPT.JS — Чистый JavaScript для портфолио
- * Функции: бегущая строка логотипа, меню, скролл, анимации, карточки
- */
+/* ==========================================================================
+   SCRIPT.JS — Чистый JavaScript для портфолио в стиле Flatonica
+   ========================================================================== */
 
 (function () {
   'use strict';
@@ -41,12 +40,10 @@
       this.burger.addEventListener('click', () => this.toggle());
       document.addEventListener('click', (e) => this.closeOutside(e));
 
-      // Закрываем меню при клике на любую ссылку внутри него
       this.menu.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => this.close());
       });
 
-      // Закрываем меню, если экран расширился до десктопа
       window.addEventListener('resize', debounce(() => {
         if (!isMobile() && this.isOpen) this.close();
       }, 200));
@@ -73,10 +70,14 @@
     },
 
     closeOutside(e) {
-      if (this.isOpen && !this.menu.contains(e.target) && !this.burger.contains(e.target)) {
+      if (
+        this.isOpen &&
+        !this.menu.contains(e.target) &&
+        !this.burger.contains(e.target)
+      ) {
         this.close();
       }
-    }
+    },
   };
 
   // ==========================================================================
@@ -84,7 +85,7 @@
   // ==========================================================================
 
   const SmoothScroll = {
-    headerHeight: 80, // Высота фиксированной шапки
+    headerHeight: 80,
 
     init() {
       document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -103,8 +104,8 @@
 
       e.preventDefault();
 
-      // Вычисляем позицию с учётом высоты шапки и небольшого отступа
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - this.headerHeight - 20;
+      const targetPosition =
+        target.getBoundingClientRect().top + window.pageYOffset - this.headerHeight - 20;
 
       window.scrollTo({
         top: targetPosition,
@@ -112,7 +113,7 @@
       });
 
       if (BurgerMenu.isOpen) BurgerMenu.close();
-    }
+    },
   };
 
   // ==========================================================================
@@ -129,7 +130,6 @@
 
       if (this.sections.length === 0) return;
 
-      // Используем IntersectionObserver для высокой производительности
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -157,7 +157,7 @@
           link.classList.remove('nav__link--active');
         }
       });
-    }
+    },
   };
 
   // ==========================================================================
@@ -177,7 +177,6 @@
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add('animate--visible');
-              // Перестаем следить за элементом после анимации (анимируем только 1 раз)
               observer.unobserve(entry.target);
             }
           });
@@ -189,7 +188,7 @@
       );
 
       animatedElements.forEach((el) => observer.observe(el));
-    }
+    },
   };
 
   // ==========================================================================
@@ -212,47 +211,12 @@
       };
 
       window.addEventListener('scroll', handleScroll, { passive: true });
-      handleScroll(); // Проверка при загрузке
-    }
+      handleScroll();
+    },
   };
 
   // ==========================================================================
-  // 7. КЛИКАБЕЛЬНЫЕ КАРТОЧКИ (Вся карточка кликабельна, если есть ссылка)
-  // ==========================================================================
-
-  const ClickableCards = {
-    init() {
-      const cards = document.querySelectorAll('.card');
-
-      cards.forEach((card) => {
-        const link = card.querySelector('a.card__link');
-        if (!link) return;
-
-        card.style.cursor = 'pointer';
-        
-        card.addEventListener('click', (e) => {
-          // Не перехватываем клик, если пользователь нажал на кнопку или другую ссылку внутри карточки
-          if (e.target.closest('button') || e.target.closest('a:not(.card__link)')) {
-            return;
-          }
-          e.preventDefault();
-          link.click();
-        });
-
-        // Открываем в новой вкладке при среднем клике (колесиком мыши)
-        card.addEventListener('auxclick', (e) => {
-          if (e.button === 1) {
-            e.preventDefault();
-            const url = link.getAttribute('href');
-            if (url) window.open(url, '_blank');
-          }
-        });
-      });
-    }
-  };
-
-  // ==========================================================================
-  // 8. ЗАПУСК ВСЕХ МОДУЛЕЙ
+  // 7. ЗАПУСК ВСЕХ МОДУЛЕЙ
   // ==========================================================================
 
   function init() {
@@ -261,12 +225,10 @@
     ActiveMenu.init();
     ScrollAnimations.init();
     StickyHeader.init();
-    ClickableCards.init();
 
-    console.log('✅ Portfolio JS initialized successfully');
+    console.log('✅ Portfolio JS initialized');
   }
 
-  // Ждем полной загрузки DOM перед запуском
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
