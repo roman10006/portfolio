@@ -235,3 +235,33 @@
     init();
   }
 })();
+// ==========================================================================
+// 11. ПЕРЕКЛЮЧЕНИЕ ТЕМЫ (СВЕТЛАЯ/ТЁМНАЯ)
+// ==========================================================================
+
+const ThemeToggle = {
+  toggle: null,
+  body: document.body,
+  storageKey: 'theme',
+
+  init() {
+    this.toggle = document.getElementById('themeToggle');
+    if (!this.toggle) return;
+
+    // Загружаем сохранённую тему
+    const savedTheme = localStorage.getItem(this.storageKey);
+    if (savedTheme === 'dark') {
+      this.body.classList.add('dark-theme');
+    }
+
+    this.toggle.addEventListener('click', () => this.toggleTheme());
+  },
+
+  toggleTheme() {
+    const isDark = this.body.classList.toggle('dark-theme');
+    localStorage.setItem(this.storageKey, isDark ? 'dark' : 'light');
+  },
+};
+
+// Добавляем в функцию init()
+ThemeToggle.init();

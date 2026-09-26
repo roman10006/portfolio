@@ -856,48 +856,476 @@ p {
 }
 
 /* ==========================================================================
-   12. ФУТЕР
+   ФУТЕР В СТИЛЕ FLATONICA (ПОЛНОЭКРАННЫЙ)
    ========================================================================== */
 
-.footer {
-  padding: 60px 0 40px;
-  border-top: 1px solid #e5e5e5;
-  background-color: #ffffff;
+.footer-full {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  padding: 80px 0 40px;
+  width: 100%;
 }
 
-.footer__content {
+.footer-full__container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+@media (max-width: 1200px) {
+  .footer-full__container {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-full__container {
+    padding: 0 20px;
+  }
+}
+
+/* Верхняя часть футера */
+.footer-full__top {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+@media (max-width: 960px) {
+  .footer-full__top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.footer-full__left {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-@media (min-width: 768px) {
-  .footer__content {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.footer-full__logo svg {
+  width: 80px;
+  height: 80px;
+}
+
+.footer-full__address {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.4;
+  max-width: 300px;
+}
+
+.footer-full__links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .footer-full__links-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
   }
 }
 
-.footer__copyright {
-  font-size: 0.875rem;
-  color: #808080;
+.footer-full__links-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.footer__links {
+.footer-full__link {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer-full__link:hover {
+  opacity: 0.7;
+}
+
+/* Кнопки Telegram и Почта */
+.footer-full__buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+  .footer-full__buttons {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer-full__button {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 48px;
+  background-color: #141414;
+  border-radius: 24px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-full__button:hover {
+  background-color: #1a1a1a;
+  transform: translateY(-4px);
+}
+
+.footer-full__button-text {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.footer-full__button-icon {
+  color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.footer-full__button:hover .footer-full__button-icon {
+  transform: translate(4px, -4px);
+}
+
+/* Разделитель */
+.footer-full__divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 40px;
+}
+
+/* Нижняя часть футера */
+.footer-full__bottom {
+  display: flex;
+  flex-direction: column;
   gap: 24px;
 }
 
-.footer__links a {
-  font-size: 0.875rem;
-  color: #808080;
-  transition: color 0.3s ease;
+.footer-full__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: center;
 }
 
-.footer__links a:hover {
-  color: #111111;
+@media (max-width: 768px) {
+  .footer-full__legal {
+    gap: 16px;
+  }
+}
+
+.footer-full__legal-link {
+  font-size: 1rem;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-full__legal-link:hover {
+  opacity: 0.7;
+}
+
+.footer-full__legal-link--accent {
+  background-color: #3b6cf5;
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.footer-full__legal-link--accent:hover {
+  background-color: #2a5ae0;
   opacity: 1;
+}
+
+.footer-full__info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  font-size: 0.875rem;
+  color: #808080;
+}
+
+@media (max-width: 768px) {
+  .footer-full__info {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.footer-full__disclaimer,
+.footer-full__cookies,
+.footer-full__meta {
+  font-size: 0.875rem;
+  color: #606060;
+  line-height: 1.6;
+}
+
+/* Платежные системы */
+.footer-full__payments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.footer-full__payment {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #808080;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-full__lang {
+  margin-left: auto;
+  font-size: 1rem;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer-full__lang:hover {
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   КНОПКА СМЕНЫ ТЕМЫ
+   ========================================================================== */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #111111;
+}
+
+.theme-toggle:hover {
+  background-color: #f5f5f7;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.theme-icon--moon {
+  display: none;
+}
+
+body.dark-theme .theme-icon--sun {
+  display: none;
+}
+
+body.dark-theme .theme-icon--moon {
+  display: block;
+}
+
+body.dark-theme .theme-toggle {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+body.dark-theme .theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================================
+   ТЁМНАЯ ТЕМА
+   ========================================================================== */
+
+body.dark-theme {
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
+body.dark-theme .header {
+  background-color: #0a0a0a;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .nav__link {
+  color: #d0d0d0;
+}
+
+body.dark-theme .nav__link:hover,
+body.dark-theme .nav__link--active {
+  color: #ffffff;
+}
+
+body.dark-theme .nav__cta {
+  background-color: transparent;
+  color: #3b6cf5;
+  border-color: #3b6cf5;
+}
+
+body.dark-theme .nav__cta:hover {
+  background-color: #3b6cf5;
+  color: #ffffff;
+}
+
+body.dark-theme .section--hero {
+  background-color: #0a0a0a;
+}
+
+body.dark-theme .hero__title,
+body.dark-theme .section__title,
+body.dark-theme .about__title,
+body.dark-theme .awards__title,
+body.dark-theme .projects__title {
+  color: #ffffff;
+}
+
+body.dark-theme .hero__badge {
+  background-color: #141414;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+body.dark-theme .hero__badge-btn {
+  background-color: #3b6cf5;
+  color: #ffffff;
+}
+
+body.dark-theme .hero__social {
+  color: #ffffff;
+}
+
+body.dark-theme .hero__description,
+body.dark-theme .about__subtitle,
+body.dark-theme .project__description {
+  color: #b0b0b0;
+}
+
+body.dark-theme .award-card {
+  background-color: #141414;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .award-card__name,
+body.dark-theme .award-card__year {
+  color: #ffffff;
+}
+
+body.dark-theme .award-card__label {
+  background-color: #1a1a1a;
+  color: #b0b0b0;
+}
+
+body.dark-theme .tag {
+  background-color: #141414;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+body.dark-theme .tag:hover {
+  border-color: #ffffff;
+  background-color: #1a1a1a;
+}
+
+body.dark-theme .project__image {
+  background-color: #141414;
+}
+
+body.dark-theme .project__logo {
+  background-color: #141414;
+}
+
+body.dark-theme .project__name,
+body.dark-theme .project__subtitle {
+  color: #ffffff;
+}
+
+body.dark-theme .project__cta {
+  background-color: #141414;
+  color: #b0b0b0;
+}
+
+body.dark-theme .contact-link {
+  background-color: #141414;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+body.dark-theme .contact-link:hover {
+  background-color: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-theme .section--contacts {
+  background: linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
+}
+
+body.dark-theme .footer {
+  background-color: #050505;
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .footer__copyright,
+body.dark-theme .footer__links a {
+  color: #808080;
+}
+
+body.dark-theme .footer__links a:hover {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   ПОЛНОЭКРАННЫЙ РЕЖИМ
+   ========================================================================== */
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 60px;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+.section {
+  width: 100%;
+}
+
+.hero__grid {
+  width: 100%;
+}
+
+.awards__grid {
+  width: 100%;
+}
+
+.clients__grid {
+  width: 100%;
 }
 
 /* ==========================================================================

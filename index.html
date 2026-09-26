@@ -43,6 +43,15 @@
             <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.053 5.56-5.023c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
           </svg>
         </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+          <svg class="theme-icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg class="theme-icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
         <a href="#" class="nav__lang">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="10"/>
@@ -226,19 +235,114 @@
         </div>
       </div>
     </section>
-  </main>
 
-  <!-- ФУТЕР -->
-  <footer class="footer">
-    <div class="container footer__content">
-      <div class="footer__copyright">© 2026 YourName. All rights reserved.</div>
-      <div class="footer__links">
-        <a href="docs/cookies.html">Cookies</a>
-        <a href="docs/useragreement.html">Terms of Service</a>
-        <a href="docs/policy_privacy.html">Privacy Policy</a>
+    <!-- ФУТЕР В СТИЛЕ FLATONICA -->
+    <footer class="footer-full">
+      <div class="footer-full__container">
+        <!-- Верхняя часть футера с контактами -->
+        <div class="footer-full__top">
+          <div class="footer-full__left">
+            <div class="footer-full__logo">
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                <path d="M10 10L10 70L70 70" stroke="#3b6cf5" stroke-width="2" stroke-dasharray="4 4"/>
+                <rect x="15" y="15" width="50" height="50" stroke="#3b6cf5" stroke-width="2"/>
+                <rect x="25" y="25" width="30" height="30" stroke="#3b6cf5" stroke-width="2"/>
+                <rect x="35" y="35" width="10" height="10" fill="#3b6cf5"/>
+              </svg>
+            </div>
+            <div class="footer-full__address">
+              Москва, Нижний Сусальный пер., 5, стр. 17, этаж 4
+            </div>
+          </div>
+
+          <div class="footer-full__links-grid">
+            <div class="footer-full__links-column">
+              <a href="#" class="footer-full__link">Telegram</a>
+              <a href="#" class="footer-full__link">Behance</a>
+              <a href="#" class="footer-full__link">Dribbble</a>
+            </div>
+            <div class="footer-full__links-column">
+              <a href="#" class="footer-full__link">Instagram*</a>
+              <a href="#" class="footer-full__link">VK</a>
+              <a href="#" class="footer-full__link">Dprofile</a>
+            </div>
+            <div class="footer-full__links-column">
+              <a href="#" class="footer-full__link">Layers</a>
+              <a href="#awards" class="footer-full__link">Награды</a>
+              <a href="#project-year" class="footer-full__link">Проект года</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Кнопки Telegram и Почта -->
+        <div class="footer-full__buttons">
+          <a href="https://t.me/username" class="footer-full__button" target="_blank">
+            <span class="footer-full__button-text">Телеграм</span>
+            <svg class="footer-full__button-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.053 5.56-5.023c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+            </svg>
+          </a>
+          <a href="mailto:hi@example.com" class="footer-full__button">
+            <span class="footer-full__button-text">Написать на почту</span>
+            <svg class="footer-full__button-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Разделитель -->
+        <div class="footer-full__divider"></div>
+
+        <!-- Нижняя часть с реквизитами -->
+        <div class="footer-full__bottom">
+          <div class="footer-full__legal">
+            <a href="#" class="footer-full__legal-link">Реквизиты</a>
+            <a href="docs/policy_privacy.html" class="footer-full__legal-link">Политика конфиденциальности</a>
+            <a href="docs/processing.html" class="footer-full__legal-link">Согласие на обработку</a>
+            <a href="docs/useragreement.html" class="footer-full__legal-link">Пользовательское соглашение</a>
+            <a href="#presentation" class="footer-full__legal-link footer-full__legal-link--accent">
+              <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
+                <path d="M9 3V15M9 15L4 10M9 15L14 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Презентация
+            </a>
+          </div>
+
+          <div class="footer-full__info">
+            <div class="footer-full__copyright">© 2026 Flatonica</div>
+            <div class="footer-full__ogrn">ОГРНИП: 319344300079167 выдан от 25 июля 2019</div>
+            <div class="footer-full__okved">Основной ОКВЭД: 62.01 «Разработка компьютерного программного обеспечения»</div>
+          </div>
+
+          <div class="footer-full__disclaimer">
+            Вся информация, представленная на сайте, носит информационный характер и не является публичной офертой, определяемой положениями Статьи 437(2) Гражданского кодекса РФ. Оставаясь на сайте, вы соглашаетесь с условиями Пользовательского соглашения и подтверждаете, что ознакомлены с Политикой обработки персональных данных и подтверждаете согласие на обработку данных и с обработкой cookies. Оплата осуществляется по договору заключаемому с ИП или АО/ООО через АО «ТБанк» на расчётный счёт компании. Направления деятельности компании из перечня, утвержденного приказом Министерства цифрового развития, связи и массовых коммуникаций Российской Федерации от 11 мая 2023 г. № 449: Код 1.01, Код 1.05.
+          </div>
+
+          <div class="footer-full__cookies">
+            Мы используем данные, содержащиеся в файлах cookie. Оставаясь на сайте, вы даете согласие на обработку ваших данных, содержащихся в файлах cookie Если вы не хотите, чтобы эти данные обрабатывались, отключите cookie в настройках браузера. Отказ от использования файлов cookie может привести к тому, что некоторые функции сайта будут вам недоступны.
+          </div>
+
+          <div class="footer-full__meta">
+            В материалах сайта упоминаются социальные сети Facebook* / Instagram* и их логотипы, принадлежащие Meta Platforms Inc., деятельность которой запрещена на территории РФ в части реализации данных социальных сетей на основании осуществления ею экстремистской деятельности.
+          </div>
+
+          <!-- Платежные системы -->
+          <div class="footer-full__payments">
+            <div class="footer-full__payment">TINKOFF</div>
+            <div class="footer-full__payment">VISA</div>
+            <div class="footer-full__payment">mastercard</div>
+            <div class="footer-full__payment">МИР</div>
+            <div class="footer-full__payment">ЮMoney</div>
+            <div class="footer-full__payment">СБП</div>
+            <div class="footer-full__payment">Я Пэй</div>
+            <div class="footer-full__payment">Pay</div>
+            <div class="footer-full__payment">Pay</div>
+            <a href="#" class="footer-full__lang">English</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </main>
 
   <script src="script.js" defer></script>
 </body>
