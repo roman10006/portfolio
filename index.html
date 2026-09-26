@@ -1,245 +1,82 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Продуктовый дизайн и развитие цифровых сервисов</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- ШАПКА (всегда сверху) -->
-  <header class="header">
-    <nav class="nav container">
-      <a href="#" class="logo">
-        <div class="logo-icon">F</div>
-      </a>
-
-      <ul class="nav__list">
-        <li><a href="#projects" class="nav__link">Проекты</a></li>
-        <li><a href="#services" class="nav__link">Услуги</a></li>
-        <li><a href="#contacts" class="nav__link">Контакты</a></li>
-        <li><a href="#awards" class="nav__link">Награды</a></li>
-        <li>
-          <a href="#project-year" class="nav__link">
-            Проект года
-            <span class="nav__dot"></span>
-          </a>
-        </li>
-        <li>
-          <a href="#presentation" class="nav__link nav__link--icon">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M9 3V15M9 15L4 10M9 15L14 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- ФУТЕР -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="container footer__contacts-grid">
+        <a href="https://t.me/username" class="footer__big-link" target="_blank">
+          Телеграм
+        </a>
+        <a href="mailto:hi@flatonica.ru" class="footer__big-link">
+          Написать на почту
+        </a>
+      </div>
+    </div>
+    
+    <div class="footer__middle">
+      <div class="container">
+        <div class="footer__links-row">
+          <a href="docs/requisites.html" class="footer__link">Реквизиты</a>
+          <a href="docs/privacy.html" class="footer__link">Политика конфиденциальности</a>
+          <a href="docs/consent.html" class="footer__link">Согласие на обработку</a>
+          <a href="docs/terms.html" class="footer__link">Пользовательское соглашение</a>
+          <a href="#" class="footer__btn footer__btn--presentation">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             Презентация
           </a>
-        </li>
-      </ul>
-
-      <div class="nav__actions">
-        <a href="#contacts" class="nav__cta">Запросить цену</a>
-        <a href="https://t.me/username" class="nav__telegram" target="_blank">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.053 5.56-5.023c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
-          </svg>
-        </a>
-        <a href="#" class="nav__lang">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-          </svg>
-          EN
-        </a>
-      </div>
-
-      <!-- Бургер -->
-      <button class="burger" aria-label="Menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </nav>
-  </header>
-
-  <main>
-    <!-- HERO СЕКЦИЯ -->
-    <section id="hero" class="section section--hero">
-      <div class="container">
-        <div class="hero__badge animate animate-fade">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-          </svg>
-          Второй год подряд определяем тренды финансового рынка
         </div>
-        <a href="#details" class="hero__badge-btn">Подробнее</a>
-
-        <div class="hero__grid">
-          <div class="hero__left">
-            <h1 class="hero__title animate animate-up">
-              Помогаем компаниям расти с помощью продуктового дизайна и AI решений
-            </h1>
-            <div class="hero__socials animate animate-up animate--delay-2">
-              <a href="#" class="hero__social">VK</a>
-              <a href="#" class="hero__social">Behance</a>
-              <a href="#" class="hero__social">Dribbble</a>
-              <a href="#" class="hero__social">Telegram</a>
-            </div>
+      </div>
+    </div>
+    
+    <div class="footer__bottom">
+      <div class="container">
+        <div class="footer__info-row">
+          <div class="footer__copyright">© 2026 Flatonica</div>
+          <div class="footer__requisites">
+            <span>ОГРНИП: 319344300079167 выдан от 25 июля 2019</span>
           </div>
-
-          <div class="hero__right animate animate-up animate--delay-1">
-            <div class="hero__image-wrapper">
-              <img class="hero__image" src="images/tild3830-6433-4639-a538-353364303631.jpg" alt="Product Design" loading="lazy">
-            </div>
-            <p class="hero__description">
-              Продуктовый дизайн и инженерия цифровых сервисов для ключевых секторов экономики: от финтеха и крипто до е-ком и телекома.
-              С 2019 года мы проектируем масштабируемые интерфейсы, развиваем продукты и системно разгружаем бэклоги корпораций
-            </p>
+          <div class="footer__okved">
+            <span>Основной ОКВЭД: 62.01 «Разработка компьютерного программного обеспечения»</span>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- О КОМПАНИИ (тёмная секция) -->
-    <section id="about" class="section section--dark">
-      <div class="container">
-        <h2 class="about__title animate animate-up">
-          Мы работаем с корпорациями и компаниями. <span class="about__title-light">Во всём мире</span>
-        </h2>
-        <p class="about__subtitle animate animate-up animate--delay-1">
-          Успешно консультируем и разрабатываем цифровые решения для <strong>малого и крупного бизнеса</strong>. Среди клиентов: Аукционный Дом РФ, JAMI LUP, Kraster Wallet, Сколково, Phantom Clash, ДомДА, BID1, RAD Holiday Homes
-        </p>
-
-        <div class="clients__grid animate animate-up animate--delay-2">
-          <div class="client">Сколково</div>
-          <div class="client">Д@Д</div>
-          <div class="client">ДОМДА</div>
-          <div class="client">Dprofile</div>
-          <div class="client">KRASTER WALLET</div>
-          <div class="client">Bifrost Wallet</div>
-          <div class="client">BID1</div>
-          <div class="client">JAMI LUP</div>
-          <div class="client">ВНИИИМТ</div>
-          <div class="client">RAD Holiday Homes</div>
-          <div class="client">CPA MAFIA</div>
+        
+        <div class="footer__legal-text">
+          <p>Вся информация, представленная на сайте, носит информационный характер и не является публичной офертой, определяемой положениями Статьи 437(2) Гражданского кодекса РФ. Оставаясь на сайте, вы соглашаетесь с условиями Пользовательского соглашения и подтверждаете, что ознакомлены с Политикой обработки персональных данных и подтверждаете согласие на обработку данных и с обработкой cookies. Оплата осуществляется по договору заключаемому с ИП или АО/ООО через АО «ТБанк» на расчётный счёт компании. Направления деятельности компании из перечня, утвержденного приказом Министерства цифрового развития, связи и массовых коммуникаций Российской Федерации от 11 мая 2023 г. № 449: Код 1.01, Код 1.05.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- НАГРАДЫ -->
-    <section id="awards" class="section section--awards">
-      <div class="container">
-        <h2 class="awards__title animate animate-up">
-          Медальный зачёт <span class="awards__dot"></span> 60 наград
-        </h2>
-
-        <div class="awards__grid">
-          <article class="award-card animate animate-up">
-            <div class="award-card__header">
-              <svg class="award-card__icon award-card__icon--gold" width="60" height="60" viewBox="0 0 60 60" fill="none">
-                <rect x="5" y="10" width="30" height="25" stroke="currentColor" stroke-width="2"/>
-                <rect x="15" y="20" width="20" height="15" stroke="currentColor" stroke-width="2"/>
-                <rect x="25" y="30" width="10" height="5" stroke="currentColor" stroke-width="2"/>
-              </svg>
-              <span class="award-card__label">Национальная премия</span>
-            </div>
-            <div class="award-card__body">
-              <div class="award-card__year">Золотой Сайт 2026</div>
-              <h3 class="award-card__name">
-                Золото «Банковский и финансовый сервис»
-                <span class="award-card__new">Новый</span>
-              </h3>
-              <div class="award-card__project">Kraster Wallet</div>
-            </div>
-          </article>
-
-          <article class="award-card animate animate-up animate--delay-1">
-            <div class="award-card__header">
-              <svg class="award-card__icon" width="60" height="60" viewBox="0 0 60 60" fill="none">
-                <rect x="5" y="10" width="30" height="25" stroke="currentColor" stroke-width="2"/>
-                <rect x="15" y="20" width="20" height="15" stroke="currentColor" stroke-width="2"/>
-                <rect x="25" y="30" width="10" height="5" stroke="currentColor" stroke-width="2"/>
-              </svg>
-              <span class="award-card__label">Национальная премия</span>
-            </div>
-            <div class="award-card__body">
-              <div class="award-card__year">Золотой Сайт 2026</div>
-              <h3 class="award-card__name">Серебро «Дизайн приложения»</h3>
-              <div class="award-card__project">Kraster Wallet</div>
-            </div>
-          </article>
+        
+        <div class="footer__legal-text">
+          <p>Мы используем данные, содержащиеся в файлах cookie. Оставаясь на сайте, вы даете согласие на обработку ваших данных, содержащихся в файлах cookie Если вы не хотите, чтобы эти данные обрабатывались, отключите cookie в настройках браузера. Отказ от использования файлов cookie может привести к тому, что некоторые функции сайта будут вам недоступны.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- ПРОЕКТЫ -->
-    <section id="projects" class="section section--projects">
-      <div class="container">
-        <h2 class="projects__title animate animate-up">
-          Цифровые решения, которые меняют отрасль и подтверждаются наградами
-        </h2>
-
-        <div class="projects__tags animate animate-up animate--delay-1">
-          <span class="tag">UX/UI</span>
-          <span class="tag">3D дизайн</span>
-          <span class="tag">Анимация</span>
+        
+        <div class="footer__legal-text">
+          <p>В материалах сайта упоминаются социальныельные сети Facebook* / Instagram* и их логотипы, принадлежащие Meta Platforms Inc., деятельность которой запрещена на территории РФ в части реализации данных социальных сетей на основании осуществления ею экстремистской деятельности.</p>
         </div>
-
-        <article class="project animate animate-up animate--delay-2">
-          <div class="project__image">
-            <img src="images/project-gatepay.jpg" alt="Gatepay" loading="lazy">
+        
+        <div class="footer__payments">
+          <div class="payment-system">TINKOFF</div>
+          <div class="payment-system">VISA</div>
+          <div class="payment-system">mastercard</div>
+          <div class="payment-system">МИР</div>
+          <div class="payment-system">Юmoney</div>
+          <div class="payment-system payment-system--sbp">
+            <svg width="40" height="24" viewBox="0 0 40 24" fill="none">
+              <path d="M20 2L2 12l18 10 18-10L20 2z" fill="currentColor"/>
+            </svg>
+            <span>СБП</span>
           </div>
-          <div class="project__info">
-            <div class="project__logo">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <circle cx="20" cy="20" r="20" fill="#F5F5F7"/>
-                <path d="M25 15C25 15 22 18 20 20C18 22 15 25 15 25" stroke="#E63946" stroke-width="3" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3 class="project__name">Gatepay</h3>
-            <div class="project__year">2026</div>
-            <p class="project__description">
-              Дизайн интерфейсов и 3D графика для финтех-инфраструктуры, которая помогает принимать платежи через СБП и банковские карты. Платформа ориентирована на SaaS-проекты, онлайн-платформы и сервисы подписок.
-            </p>
-            <div class="project__cta">Скоро на сайте</div>
+          <div class="payment-system">Я Пэй</div>
+          <div class="payment-system payment-system--pay">Pay</div>
+          <div class="payment-system payment-system--apple">
+            <svg width="20" height="24" viewBox="0 0 20 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            Pay
           </div>
-          <h4 class="project__subtitle">Задизайнили интерфейсы ЛК и приложения и отрендерили графику</h4>
-        </article>
-      </div>
-    </section>
-
-    <!-- КОНТАКТЫ -->
-    <section id="contacts" class="section section--contacts">
-      <div class="container">
-        <span class="section__label animate animate-fade">Контакты</span>
-        <h2 class="section__title animate animate-up">Свяжитесь со мной</h2>
-
-        <div class="contacts__list mt-5">
-          <a href="https://t.me/username" class="contact-link animate animate-up" target="_blank">
-            Telegram
-          </a>
-          <a href="https://instagram.com/username" class="contact-link animate animate-up animate--delay-1" target="_blank">
-            Instagram
-          </a>
-          <a href="mailto:hi@example.com" class="contact-link animate animate-up animate--delay-2">
-            hi@example.com
-          </a>
         </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ФУТЕР -->
-  <footer class="footer">
-    <div class="container footer__content">
-      <div class="footer__copyright">© 2026 YourName. All rights reserved.</div>
-      <div class="footer__links">
-        <a href="docs/cookies.html">Cookies</a>
-        <a href="docs/useragreement.html">Terms of Service</a>
-        <a href="docs/policy_privacy.html">Privacy Policy</a>
+        
+        <div class="footer__lang">
+          <a href="#" class="footer__lang-link">English</a>
+        </div>
       </div>
     </div>
   </footer>
-
-  <script src="script.js" defer></script>
-</body>
-</html>
