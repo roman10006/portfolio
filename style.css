@@ -1879,3 +1879,19 @@ body.dark-theme .logo-text {
   display: flex;
   gap: 12px;
 }
+/* Отключаем выделение текста на мобильных */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Разрешаем выделение только в полях ввода и ссылках */
+input, textarea, a {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
