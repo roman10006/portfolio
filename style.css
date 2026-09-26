@@ -363,6 +363,8 @@ p {
 
 .section--awards {
   background-color: #ffffff;
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
 }
 
 .section--projects {
@@ -561,22 +563,18 @@ p {
    ========================================================================== */
 
 .awards__title {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   color: #111111;
-  margin-bottom: 60px;
+  margin-bottom: 32px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .awards__dot {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  background-color: #f5d547;
-  border-radius: 50%;
+  display: none;
 }
 
 .awards__grid {
@@ -1394,7 +1392,7 @@ html, body {
   display: flex;
   align-items: flex-start;
   padding-top: 160px !important;
-  padding-bottom: 80px;
+  padding-bottom: 40px !important;
   position: relative;
 }
 
