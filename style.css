@@ -1567,3 +1567,62 @@ body.dark-theme .hero__video-wrapper {
     aspect-ratio: 16 / 9;
   }
 }
+/* ==========================================================================
+   ОБНОВЛЕНИЕ HERO СЕКЦИИ — НОВЫЙ ТЕКСТ И УБРАН БЕЙДЖ
+   ========================================================================== */
+
+/* Убираем бейдж и кнопку (если они ещё остались) */
+.hero__badge-wrapper {
+  display: none;
+}
+
+/* Делаем текст описания более заметным */
+.hero__description--highlighted {
+  font-size: clamp(1.125rem, 1.4vw, 1.375rem);
+  line-height: 1.7;
+  color: #111111;
+  font-weight: 400;
+  margin-top: 24px;
+  padding: 24px 28px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-left: 4px solid #3b6cf5;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.hero__description--highlighted:hover {
+  box-shadow: 0 8px 30px rgba(59, 108, 245, 0.12);
+  transform: translateX(4px);
+}
+
+.hero__description--highlighted strong {
+  color: #3b6cf5;
+  font-weight: 700;
+  font-size: 1.25em;
+}
+
+/* Тёмная тема */
+body.dark-theme .hero__description--highlighted {
+  background: linear-gradient(135deg, #1a1a1a 0%, #141414 100%);
+  color: #e0e0e0;
+  border-left-color: #3b6cf5;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .hero__description--highlighted:hover {
+  box-shadow: 0 8px 30px rgba(59, 108, 245, 0.2);
+}
+
+body.dark-theme .hero__description--highlighted strong {
+  color: #5b8cf5;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .hero__description--highlighted {
+    font-size: 1rem;
+    padding: 20px;
+    margin-top: 20px;
+  }
+}
