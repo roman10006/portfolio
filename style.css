@@ -262,21 +262,6 @@ p {
   opacity: 1;
 }
 
-.nav__telegram {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  color: #111111;
-  transition: transform 0.3s ease;
-}
-
-.nav__telegram:hover {
-  transform: scale(1.1);
-  opacity: 1;
-}
-
 .nav__lang {
   display: flex;
   align-items: center;

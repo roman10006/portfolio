@@ -265,3 +265,8 @@ const ThemeToggle = {
 
 // Добавляем в функцию init()
 ThemeToggle.init();
+// В функции init() добавьте:
+const themeToggleMobile = document.getElementById('themeToggleMobile');
+if (themeToggleMobile) {
+  themeToggleMobile.addEventListener('click', () => ThemeToggle.toggleTheme());
+}
