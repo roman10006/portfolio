@@ -1417,3 +1417,111 @@ html, body {
     font-size: 1.375rem;
   }
 }
+/* ==========================================================================
+   ИСПРАВЛЕНИЕ HERO СЕКЦИИ — ЦЕНТРИРОВАНИЕ БЕЙДЖА И ПОЛНЫЙ ЭКРАН
+   ========================================================================== */
+
+/* Секция Hero на весь экран */
+.section--hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 160px !important;
+  padding-bottom: 80px;
+  position: relative;
+}
+
+/* Обёртка для бейджа и кнопки — по центру */
+.hero__badge-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* Бейдж — больше и по центру */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 32px;
+  background-color: #ffffff;
+  border: 1.5px solid #e5e5e5;
+  border-radius: 100px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #111111;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  white-space: nowrap;
+}
+
+.hero__badge svg {
+  color: #111111;
+  flex-shrink: 0;
+}
+
+/* Кнопка "Подробнее" — больше */
+.hero__badge-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #111111;
+  color: #ffffff;
+  border-radius: 100px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.hero__badge-btn:hover {
+  background-color: #333333;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  opacity: 1;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .section--hero {
+    padding-top: 120px !important;
+  }
+
+  .hero__badge-wrapper {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .hero__badge {
+    font-size: 0.9375rem;
+    padding: 16px 24px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .hero__badge-btn {
+    font-size: 1rem;
+    padding: 16px 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section--hero {
+    padding-top: 100px !important;
+  }
+
+  .hero__badge {
+    font-size: 0.875rem;
+    padding: 14px 20px;
+  }
+
+  .hero__badge-btn {
+    font-size: 0.9375rem;
+    padding: 14px 28px;
+  }
+}
