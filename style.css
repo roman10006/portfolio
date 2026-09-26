@@ -1525,15 +1525,85 @@ html, body {
     padding: 14px 28px;
   }
 }
+/* ==========================================================================
+   ЛОГОТИП + НАДПИСЬ В ШАПКЕ
+   ========================================================================== */
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 .logo-image {
+  width: 48px;
   height: 48px;
-  width: auto;
-  display: block;
+  object-fit: contain;
+  border-radius: 50%;
   transition: transform 0.3s ease;
+  background-color: #000;
 }
 
 .logo:hover .logo-image {
   transform: scale(1.05);
+  opacity: 1;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #111111;
+  background: linear-gradient(135deg, #111111 0%, #3b6cf5 50%, #111111 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brandShine 4s ease-in-out infinite;
+  white-space: nowrap;
+}
+
+@keyframes brandShine {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* Убираем старый блок из Hero */
+.hero__logo-wrapper {
+  display: none !important;
+}
+
+/* Тёмная тема */
+body.dark-theme .logo-text {
+  background: linear-gradient(135deg, #ffffff 0%, #5b8cf5 50%, #ffffff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark-theme .logo-image {
+  background-color: #ffffff;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .logo-text {
+    font-size: 1.125rem;
+  }
+  .logo-image {
+    width: 40px;
+    height: 40px;
+  }
+  .logo-wrapper {
+    gap: 10px;
+  }
 }
 /* ==========================================================================
    ВИДЕО В HERO СЕКЦИИ
